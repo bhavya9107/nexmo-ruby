@@ -15,15 +15,21 @@ module Nexmo
     end
 
     def buy(params)
-      request('/number/buy', params: params, type: Post)
+      entity = request('/number/buy', params: params, type: Post)
+
+      NumbersResponse.new(entity)
     end
 
     def cancel(params)
-      request('/number/cancel', params: params, type: Post)
+      entity = request('/number/cancel', params: params, type: Post)
+
+      NumbersResponse.new(entity)
     end
 
     def update(params)
-      request('/number/update', params: camelcase(params), type: Post)
+      entity = request('/number/update', params: camelcase(params), type: Post)
+
+      NumbersResponse.new(entity)
     end
   end
 end

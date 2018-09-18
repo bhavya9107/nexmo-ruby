@@ -47,7 +47,7 @@ class NexmoNumbersTest < Nexmo::Test
 
     request = stub_request(:post, uri).with(headers: headers, body: params.merge(api_key_and_secret)).to_return(response)
 
-    assert_equal response_object, numbers.buy(params)
+    assert_kind_of Nexmo::NumbersResponse, numbers.buy(params)
     assert_requested request
   end
 
@@ -58,7 +58,7 @@ class NexmoNumbersTest < Nexmo::Test
 
     request = stub_request(:post, uri).with(headers: headers, body: params.merge(api_key_and_secret)).to_return(response)
 
-    assert_equal response_object, numbers.cancel(params)
+    assert_kind_of Nexmo::NumbersResponse, numbers.cancel(params)
     assert_requested request
   end
 
@@ -71,7 +71,7 @@ class NexmoNumbersTest < Nexmo::Test
 
     request = stub_request(:post, uri).with(headers: headers, body: params.merge(api_key_and_secret)).to_return(response)
 
-    assert_equal response_object, numbers.update(country: country, msisdn: msisdn, mo_http_url: mo_http_url)
+    assert_kind_of Nexmo::NumbersResponse, numbers.update(country: country, msisdn: msisdn, mo_http_url: mo_http_url)
     assert_requested request
   end
 end
