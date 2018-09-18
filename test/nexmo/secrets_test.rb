@@ -43,7 +43,7 @@ class NexmoSecretsTest < Nexmo::Test
   def test_list_method
     request = stub_request(:get, secrets_uri).with(headers: headers).to_return(response)
 
-    assert_equal response_object, secrets.list
+    assert_kind_of Nexmo::ListResponse, secrets.list
     assert_requested request
   end
 

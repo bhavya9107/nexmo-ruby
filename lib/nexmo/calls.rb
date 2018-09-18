@@ -11,7 +11,9 @@ module Nexmo
     end
 
     def list(params = nil)
-      request('/v1/calls', params: params)
+      entity = request('/v1/calls', params: params)
+
+      ListResponse.new(entity)
     end
 
     def get(id)

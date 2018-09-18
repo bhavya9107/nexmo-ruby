@@ -11,7 +11,9 @@ module Nexmo
     end
 
     def list
-      request('/accounts/' + account_id + '/secrets')
+      entity = request('/accounts/' + account_id + '/secrets')
+
+      ListResponse.new(entity)
     end
 
     def get(secret_id)

@@ -119,6 +119,10 @@ Docs: [https://developer.nexmo.com/api/voice#createCall](https://developer.nexmo
 
 ```ruby
 response = client.calls.list
+
+response.each do |call|
+  puts "#{call.uuid} #{call.direction} #{call.status}"
+end
 ```
 
 Docs: [https://developer.nexmo.com/api/voice#getCalls](https://developer.nexmo.com/api/voice?utm_source=DEV_REL&utm_medium=github&utm_campaign=ruby-client-library#getCalls)
@@ -286,6 +290,10 @@ Docs: [https://developer.nexmo.com/api/application#create-an-application](https:
 
 ```ruby
 response = client.applications.list
+
+response.each do |application|
+  puts "#{application.id} #{application.name}"
+end
 ```
 
 Docs: [https://developer.nexmo.com/api/application#retrieve-your-applications](https://developer.nexmo.com/api/application?utm_source=DEV_REL&utm_medium=github&utm_campaign=ruby-client-library#retrieve-your-applications)

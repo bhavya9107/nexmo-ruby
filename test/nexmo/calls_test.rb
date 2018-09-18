@@ -41,7 +41,7 @@ class NexmoCallsTest < Nexmo::Test
 
     request = stub_request(:get, calls_uri).with(headers: headers, query: params).to_return(response)
 
-    assert_equal response_object, calls.list(params)
+    assert_kind_of Nexmo::ListResponse, calls.list(params)
     assert_requested request
   end
 

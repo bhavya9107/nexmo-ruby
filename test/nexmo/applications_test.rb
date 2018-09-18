@@ -40,7 +40,7 @@ class NexmoApplicationsTest < Nexmo::Test
 
     request = stub_request(:get, applications_uri).with(query: params.merge(api_key_and_secret)).to_return(response)
 
-    assert_equal response_object, applications.list(params)
+    assert_kind_of Nexmo::ListResponse, applications.list(params)
     assert_requested request
   end
 
