@@ -16,7 +16,7 @@ class NexmoVerifyTest < Nexmo::Test
 
     request = stub_request(:post, uri).with(headers: headers, body: params.merge(api_key_and_secret)).to_return(response)
 
-    assert_equal response_object, verify.request(params)
+    assert_kind_of Nexmo::VerifyResponse, verify.request(params)
     assert_requested request
   end
 
@@ -27,7 +27,7 @@ class NexmoVerifyTest < Nexmo::Test
 
     request = stub_request(:post, uri).with(headers: headers, body: params.merge(api_key_and_secret)).to_return(response)
 
-    assert_equal response_object, verify.check(params)
+    assert_kind_of Nexmo::VerifyResponse, verify.check(params)
     assert_requested request
   end
 
@@ -38,7 +38,7 @@ class NexmoVerifyTest < Nexmo::Test
 
     request = stub_request(:get, uri).with(query: params.merge(api_key_and_secret)).to_return(response)
 
-    assert_equal response_object, verify.search(params)
+    assert_kind_of Nexmo::VerifyResponse, verify.search(params)
     assert_requested request
   end
 
@@ -49,7 +49,7 @@ class NexmoVerifyTest < Nexmo::Test
 
     request = stub_request(:post, uri).with(headers: headers, body: params.merge(api_key_and_secret)).to_return(response)
 
-    assert_equal response_object, verify.control(params)
+    assert_kind_of Nexmo::VerifyResponse, verify.control(params)
     assert_requested request
   end
 
@@ -60,7 +60,7 @@ class NexmoVerifyTest < Nexmo::Test
 
     request = stub_request(:post, uri).with(headers: headers, body: params.merge(api_key_and_secret)).to_return(response)
 
-    assert_equal response_object, verify.cancel(request_id)
+    assert_kind_of Nexmo::VerifyResponse, verify.cancel(request_id)
     assert_requested request
   end
 
@@ -71,7 +71,7 @@ class NexmoVerifyTest < Nexmo::Test
 
     request = stub_request(:post, uri).with(headers: headers, body: params.merge(api_key_and_secret)).to_return(response)
 
-    assert_equal response_object, verify.trigger_next_event(request_id)
+    assert_kind_of Nexmo::VerifyResponse, verify.trigger_next_event(request_id)
     assert_requested request
   end
 end

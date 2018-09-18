@@ -193,7 +193,7 @@ Docs: [https://developer.nexmo.com/api/voice#startDTMF](https://developer.nexmo.
 ```ruby
 response = client.verify.request(number: '441632960960', brand: 'MyApp')
 
-if response.status == '0'
+if response.success?
   puts "Started verification request_id=#{response.request_id}"
 else
   puts "Error: #{response.error_text}"
@@ -209,7 +209,7 @@ The response contains a verification request id which you will need to store tem
 ```ruby
 response = client.verify.check(request_id: '00e6c3377e5348cdaf567e1417c707a5', code: '1234')
 
-if response.status == '0'
+if response.success?
   puts "Verification complete, event_id=#{response.event_id}"
 else
   puts "Error: #{response.error_text}"

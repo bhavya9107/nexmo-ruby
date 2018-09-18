@@ -2,7 +2,7 @@
 
 module Nexmo
   class Verify < Namespace
-    alias_method :http_request, :request
+    alias_method :namespace_request, :request
 
     def request(params)
       http_request('/verify/json', params: params, type: Post)
@@ -26,6 +26,12 @@ module Nexmo
 
     def trigger_next_event(id)
       control(request_id: id, cmd: 'trigger_next_event')
+    end
+
+    private
+
+    def http_request(*args)
+      VerifyResponse.new(namespace_request(*args))
     end
   end
 end
