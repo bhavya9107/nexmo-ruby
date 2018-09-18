@@ -14,7 +14,7 @@ class NexmoSMSTest < Nexmo::Test
 
     request = stub_request(:post, uri).with(headers: headers, body: params.merge(api_key_and_secret)).to_return(response)
 
-    assert_equal response_object, sms.send(params)
+    assert_kind_of Nexmo::SMSResponse, sms.send(params)
     assert_requested request
   end
 
@@ -23,7 +23,7 @@ class NexmoSMSTest < Nexmo::Test
 
     request = stub_request(:post, uri).with(headers: headers, body: params.merge(api_key_and_secret)).to_return(response)
 
-    assert_equal response_object, sms.send(status_report_req: 1)
+    assert_kind_of Nexmo::SMSResponse, sms.send(status_report_req: 1)
     assert_requested request
   end
 end

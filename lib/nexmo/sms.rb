@@ -7,7 +7,9 @@ module Nexmo
     self.host = 'rest.nexmo.com'
 
     def send(params)
-      request('/sms/json', params: hyphenate(params), type: Post)
+      entity = request('/sms/json', params: hyphenate(params), type: Post)
+
+      SMSResponse.new(entity)
     end
   end
 end

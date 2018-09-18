@@ -91,7 +91,7 @@ of source control, or in some kind of key management infrastructure.
 ```ruby
 response = client.sms.send(from: 'Ruby', to: 'YOUR NUMBER', text: 'Hello world')
 
-if response.messages.first.status == '0'
+if response.success?
   puts "Sent message id=#{response.messages.first.message_id}"
 else
   puts "Error: #{response.messages.first.error_text}"
