@@ -18,7 +18,7 @@ class NexmoNumberInsightTest < Nexmo::Test
 
     request = stub_request(:get, uri).with(query: query).to_return(response)
 
-    assert_equal response_object, number_insight.basic(params)
+    assert_kind_of Nexmo::NumberInsightResponse, number_insight.basic(params)
     assert_requested request
   end
 
@@ -27,7 +27,7 @@ class NexmoNumberInsightTest < Nexmo::Test
 
     request = stub_request(:get, uri).with(query: query).to_return(response)
 
-    assert_equal response_object, number_insight.standard(params)
+    assert_kind_of Nexmo::NumberInsightResponse, number_insight.standard(params)
     assert_requested request
   end
 
@@ -36,7 +36,7 @@ class NexmoNumberInsightTest < Nexmo::Test
 
     request = stub_request(:get, uri).with(query: query).to_return(response)
 
-    assert_equal response_object, number_insight.advanced(params)
+    assert_kind_of Nexmo::NumberInsightResponse, number_insight.advanced(params)
     assert_requested request
   end
 
@@ -45,7 +45,7 @@ class NexmoNumberInsightTest < Nexmo::Test
 
     request = stub_request(:get, uri).with(query: query).to_return(response)
 
-    assert_equal response_object, number_insight.advanced_async(params)
+    assert_kind_of Nexmo::NumberInsightResponse, number_insight.advanced_async(params)
     assert_requested request
   end
 end

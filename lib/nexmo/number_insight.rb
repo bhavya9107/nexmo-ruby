@@ -17,5 +17,11 @@ module Nexmo
     def advanced_async(params)
       request('/ni/advanced/async/json', params: params)
     end
+
+    private
+
+    def request(*)
+      NumberInsightResponse.new(super)
+    end
   end
 end
